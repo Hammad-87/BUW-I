@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- CSS -->
+  <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+  <style>
+      *{
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    /* font-size: 1vw; */    
+}
+
+.container{
+padding: 0px 200px 0px 300px;
+}
+img{    
+    /* width: 200px; */
+    height: 60px;
+    text-align: center;
+    max-width: 100%;
+}
+
+.btn-fb{   
+    margin-bottom: 1.5%;
+    background-color: #4169E1;
+    color: white;
+    /* padding-left: 110px;
+    padding-right: 110px; */
+    width: 100%;
+    min-width: 50px;  
+    max-width: 700px;
+    height: 50px; 
+    border-radius: 40px;    
+    overflow:hidden;
+}
+
+.btn-google{   
+    margin-bottom: 1%;
+    background-color: black;
+    color: white;
+    /* padding-left: 110px;
+    padding-right: 110px; */
+    width: 100%;
+    min-width: 50px;  
+    max-width: 700px;
+    height: 50px; 
+    border-radius: 40px;    
+    overflow:hidden;    
+}
+.btn-submit{
+    background-color: green;
+    color: white;
+    border-radius: 40px;
+    height: 100%;
+    width: 100%;
+    min-width: 50px;  
+    max-width: 150px;
+}
+.btn-signUp{
+    margin-bottom: 1.5%;
+    background-color:transparent;
+    color: gray;
+    /* padding-left: 110px;
+    padding-right: 110px; */
+    width: 100%;
+    min-width: 50px;  
+    max-width: 700px;
+    height: 50px; 
+    border-radius: 40px;    
+    overflow:hidden;
+    border: 1px solid grey;
+}
+.btn-fb:hover{
+    background-color: #1E90FF;
+    color: white;
+}
+.btn-google:hover{
+    background-color: #323232;
+    color: white;
+}
+
+.btn-signUp:hover{
+    background-color: grey;
+    color: white;
+}
+
+hr.hr-text {
+    position: relative;
+      border: none;
+      height: 1px;
+      background: #E0E0E0;
+      /* margin-left: 265px;
+      margin-right: 265px; */
+  }
+  
+  hr.hr-text::before {
+      content: attr(data-content);
+      display: inline-block;
+      background: #fff;
+      font-weight: bold;
+      font-size: 0.85rem;
+      color: black;
+      border-radius: 30rem;
+      padding: 0.2rem 2rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+
+ /* Check Box */
+ .checkbox {
+    width: 100%;
+    margin: 15px auto;
+    position: relative;
+    display: block;
+}
+
+.checkbox input[type="checkbox"] {
+    width: auto;
+    opacity: 0.00000001;
+    position: absolute;
+    left: 0;
+    margin-left: -20px;
+}
+.checkbox label {
+    position: relative;
+}
+.checkbox label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 4px;
+    width: 22px;
+    height: 22px;
+    transition: transform 0.28s ease;
+    border-radius: 3px;
+    border: 2px solid #7bbe72;
+}
+.checkbox label:after {
+  content: '';
+    display: block;
+    width: 10px;
+    height: 5px;
+    border-bottom: 2px solid white; /* Tick Mark */
+    border-left: 2px solid white; /* Tick Mark */
+    -webkit-transform: rotate(-45deg) scale(0);
+    transform: rotate(-45deg) scale(0);
+    transition: transform ease 0.25s;
+    will-change: transform;
+    position: absolute;
+    top: 12px;
+    left: 10px;
+}
+.checkbox input[type="checkbox"]:checked ~ label::before {    
+    background-color: #7bbe72;
+    
+}
+
+.checkbox input[type="checkbox"]:checked ~ label::after {
+    -webkit-transform: rotate(-45deg) scale(1);
+    transform: rotate(-45deg) scale(1);
+}
+
+.checkbox label {
+    min-height: 34px;
+    display: block;
+    padding-left: 40px;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;    
+}
+
+.checkbox label span {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.checkbox input[type="checkbox"]:focus + label::before {
+    outline: 0;
+}
+
+/* footer */
+#sideInfo{
+    display: none !important;
+}
+.footer-copyright img:hover ~ #sideInfo{
+    display: inline-flex !important;
+    flex-direction: column !important;
+    
+}
+/* #sideInfo:hover{
+    display: block !important;
+} */
+/* with delay */
+#sideInfo{
+    opacity: 0;
+}
+.footer-copyright img:hover ~ #sideInfo{
+opacity: 1;
+}
+#sideInfo:hover{
+    opacity: 1;
+}
+#sideInfo:not(hover) {
+    animation-delay: 0.2s;
+    -webkit-animation-delay: 0.2s;
+    -webkit-transition: opacity 0.2s ease-out;
+    opacity: 0;
+}
+  
+  /* Media Queries*/
+  @media screen and (max-width: 1200px) {
+    /* #primary { width:67%; }
+    #secondary { width:30%; margin-left:3%;} */  
+    .container{
+        padding: 0px 200px 0px 200px;
+        
+        }
+}
+
+@media screen and (max-width: 982px) {
+    /* #primary { width:67%; }
+    #secondary { width:30%; margin-left:3%;} */  
+    .container{
+        padding: 0px 100px 0px 100px;
+        
+        }
+}
+
+/* Media Queries: Tabled Portrait */
+@media screen and (max-width: 762px) {
+    /* #primary { width:100%; }
+    #secondary { width:100%; margin:0; border:none; } */
+    .container{
+        padding: 0px 10px 0px 10px;
+        
+        }
+}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <!-- header -->
+<header>
+    <div class="page-header text-center pb-4 mb-4 mt-3 border-bottom">
+        <a href="#"> <img class="center-block" src="/images/logo.png" alt="logo"></a>
+    </div>
+</header>
+    <!-- Login -->
+    <div class="container">
+        <div class="d-flex flex-column">
+            <div>               
+                <button class="btn btn-fb text-uppercase" type="button"><span><i class="fa fa-facebook-f pr-2" style="font-size:15px"></i> Continue with Facebook</span> </button>
+            </div>
+            <div>
+                <button class="btn btn-google text-uppercase" type="button"><span><i class="fa fa-apple pr-2" aria-hidden="true"></i> continue with Apple</span> </button>
+            </div>
+        </div>
+        <div class="divider mb-4">
+            <hr data-content= "OR" class="hr-text">
+        </div>
+        <div class="form">
+            <div class="input-group mb-3">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+            </div>
+          <div class="input-group">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+          </div>
+        </div>
+        <div class="d-flex flex-row justify-content-between mt-3">            
+            <div class="checkbox">
+                <input type="checkbox" id="checkbox" name="" value="">
+                <label for="checkbox"><span>Remember me</span></label>
+             </div>
+            <button class="btn btn-submit text-uppercase" type="button"> Log in</button>
+        </div>
+        <div class="text-center mt-3 mb-5">
+            <a href="#" id="forgot_pswd" class="text-success">Forgot your password?</a>
+        </div>
+        <hr>
+        <div class="text-center mt-4 mb-3">
+            <strong>Don't have an account?</strong>
+        </div>
+        <div class="signup mb-3">
+            <button class="btn btn-signUp text-uppercase" type="button"><span>sign up for spotify</span> </button>
+        </div>
+        <hr>
+        <div class="mt-3 mb-3">
+            <p class="text-muted text-center" style="font-size:9px">If you click "Log in with Facebook" and are not a Spotify user, you will be registered and you agree to Spotify's <span class="text-success">Terms & Conditions </span> and <span class="text-success">Privacy Policy</span>.</p>
+
+        </div>       
+    </div>
+
+    <!-- footer -->
+    
+<footer>
+    <div class="footer-copyright text-right py-3">
+        <img class="center-block d-inline-flex" src="/images/captcha.png" alt="logo">
+        <div class="rounded" id="sideInfo">
+            <small class="pt-2 px-2 bg-primary text-white">protected by reCAPTCHA</small>
+            <small class="pb-2 px-2 bg-primary text-white text-left">privacy-terms</small>
+        </div>
+        
+      </div>
+      
+</footer>
+
+    
+
+    
+    
+</body>
+</html>
